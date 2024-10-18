@@ -1,7 +1,8 @@
+import { Route, Router, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { getPets } from './services/petService'
 import PetList from './components/PetList'
-import { Route, Router, Routes } from 'react-router-dom'
+import PetDetail from './components/PetDetail'
 import './App.css'
 
 function App() {
@@ -20,7 +21,6 @@ function App() {
   */
 
   const [pets, setPets] = useState([])
-
 
   //raul method
   const fetchPets = async () => {
@@ -41,6 +41,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<PetList pets={pets}/>}/> 
+        <Route path="/pets/:petId" element={<PetDetail />} />
       </Routes> 
     </>
   )

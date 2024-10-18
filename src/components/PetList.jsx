@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function PetList({ pets }) {
   return (
@@ -7,11 +8,13 @@ function PetList({ pets }) {
       {pets.length ? (
         <ul>
           {pets.map((pet) => (
-            <li key={pet._id}>{pet.name}</li>
+            <Link to= {`/pets/${pet._id}`}>
+              <li key={pet._id}>{pet.name}</li>
+            </Link>
           ))}
         </ul>
       ) : (
-        <h1>No pets!</h1>
+        <p>loading pets...</p>
       )}
     </div>
   );
